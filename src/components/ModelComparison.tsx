@@ -25,7 +25,6 @@ const models: ModelData[] = [
     precision: 0.731,
     recall: 0.734,
     f1Score: 0.732,
-    isBest: true,
   },
   {
     name: "Logistic Regression",
@@ -36,10 +35,11 @@ const models: ModelData[] = [
   },
   {
     name: "KNN (Tuned)",
-    accuracy: 0.691,
-    precision: 0.697,
-    recall: 0.691,
-    f1Score: 0.693,
+    accuracy: 0.791,
+    precision: 0.797,
+    recall: 0.791,
+    f1Score: 0.793,
+    isBest: true,
   },
   {
     name: "Neural Network",
