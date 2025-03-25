@@ -20,42 +20,43 @@ interface ModelData {
   isBest?: boolean;
 }
 
+// Updated model data from the provided screenshot
 const models: ModelData[] = [
   {
     name: "Random Forest",
-    accuracy: 0.723,
-    precision: 0.736,
-    recall: 0.723,
-    f1Score: 0.724,
+    accuracy: 0.2691,
+    precision: 0.2458,
+    recall: 0.2691,
+    f1Score: 0.2431,
   },
   {
     name: "Gradient Boosting",
-    accuracy: 0.734,
-    precision: 0.731,
-    recall: 0.734,
-    f1Score: 0.732,
+    accuracy: 0.2582,
+    precision: 0.2247,
+    recall: 0.2582,
+    f1Score: 0.2326,
   },
   {
     name: "Logistic Regression",
-    accuracy: 0.659,
-    precision: 0.667,
-    recall: 0.659,
-    f1Score: 0.658,
+    accuracy: 0.2582,
+    precision: 0.1584,
+    recall: 0.2582,
+    f1Score: 0.1960,
   },
   {
-    name: "KNN (Tuned)",
-    accuracy: 0.791,
-    precision: 0.797,
-    recall: 0.791,
-    f1Score: 0.793,
+    name: "KNN",
+    accuracy: 0.2727,
+    precision: 0.2779,
+    recall: 0.2727,
+    f1Score: 0.2726,
     isBest: true,
   },
   {
     name: "Neural Network",
-    accuracy: 0.712,
-    precision: 0.717,
-    recall: 0.712,
-    f1Score: 0.714,
+    accuracy: 0.2509,
+    precision: 0.2466,
+    recall: 0.2509,
+    f1Score: 0.2481,
   },
 ];
 
@@ -98,7 +99,7 @@ const ModelComparison = () => {
       <div className="overflow-x-auto">
         <Table>
           <TableCaption>
-            KNN (Tuned) achieved the highest performance with an F1 Score of 79.3%
+            KNN achieved the highest performance with an F1 Score of 27.3%
           </TableCaption>
           <TableHeader>
             <TableRow>

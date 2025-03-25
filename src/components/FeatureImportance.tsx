@@ -7,6 +7,7 @@ interface FeatureData {
   importance: number;
 }
 
+// Updated features list based on the user's input
 const features: FeatureData[] = [
   { name: "DistanceFromHome(Miles)", importance: 0.163 },
   { name: "JobRole", importance: 0.145 },
