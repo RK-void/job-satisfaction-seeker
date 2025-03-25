@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import Navigation from '@/components/Navigation';
 import SectionTitle from '@/components/SectionTitle';
@@ -6,6 +5,7 @@ import FeatureCard from '@/components/FeatureCard';
 import ModelComparison from '@/components/ModelComparison';
 import FeatureImportance from '@/components/FeatureImportance';
 import EmployeeSegments from '@/components/EmployeeSegments';
+import SatisfactionScale from '@/components/SatisfactionScale';
 import { cn } from '@/lib/utils';
 import { SearchIcon, ChartBar, Info, CircleCheck, FileText, Settings, ArrowUp } from 'lucide-react';
 
@@ -431,9 +431,9 @@ const Index = () => {
                       <ChartBar className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-medium">Work-Life Balance is Crucial</h4>
+                      <h4 className="font-medium">Distance From Home Matters</h4>
                       <p className="text-sm text-muted-foreground">
-                        The single most important predictor of job satisfaction, accounting for 18.5% of predictive power
+                        Commute distance significantly affects job satisfaction, more than expected
                       </p>
                     </div>
                   </div>
@@ -443,9 +443,9 @@ const Index = () => {
                       <ChartBar className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-medium">Compensation Matters</h4>
+                      <h4 className="font-medium">Role Satisfaction Connection</h4>
                       <p className="text-sm text-muted-foreground">
-                        Monthly income ranked as the second most important factor, but with context of job role and level
+                        Job role is the second most important factor, reflecting fit with skills and interests
                       </p>
                     </div>
                   </div>
@@ -457,7 +457,7 @@ const Index = () => {
                     <div>
                       <h4 className="font-medium">Career Progression Significance</h4>
                       <p className="text-sm text-muted-foreground">
-                        Years since last promotion showed significant impact on satisfaction levels
+                        Years since last promotion and years in current role strongly impact satisfaction levels
                       </p>
                     </div>
                   </div>
@@ -469,7 +469,7 @@ const Index = () => {
                     <div>
                       <h4 className="font-medium">Model Performance</h4>
                       <p className="text-sm text-muted-foreground">
-                        Gradient Boosting classifier achieved the highest F1-score of 73.2%, outperforming other models
+                        KNN classifier achieved the highest F1-score of 79.3%, significantly outperforming other models
                       </p>
                     </div>
                   </div>
@@ -477,7 +477,12 @@ const Index = () => {
               </div>
             </div>
             
-            <div className="mt-8">
+            <div className="mt-16">
+              <h3 className="text-xl font-medium mb-6">Satisfaction Prediction</h3>
+              <SatisfactionScale />
+            </div>
+            
+            <div className="mt-16">
               <h3 className="text-xl font-medium mb-6">Employee Segments</h3>
               <EmployeeSegments />
             </div>
@@ -629,3 +634,4 @@ const Index = () => {
 };
 
 export default Index;
+

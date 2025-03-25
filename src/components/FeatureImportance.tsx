@@ -8,16 +8,17 @@ interface FeatureData {
 }
 
 const features: FeatureData[] = [
-  { name: "Work Life Balance", importance: 0.185 },
-  { name: "Monthly Income", importance: 0.142 },
-  { name: "Job Role", importance: 0.137 },
-  { name: "Years at Company", importance: 0.112 },
-  { name: "Environment Satisfaction", importance: 0.098 },
-  { name: "Age", importance: 0.081 },
-  { name: "Job Level", importance: 0.072 },
-  { name: "Distance From Home", importance: 0.063 },
-  { name: "Years Since Last Promotion", importance: 0.057 },
-  { name: "Gender", importance: 0.053 },
+  { name: "DistanceFromHome(Miles)", importance: 0.163 },
+  { name: "JobRole", importance: 0.145 },
+  { name: "YearsInCurrentRole", importance: 0.124 },
+  { name: "YearsSinceLastPromotion", importance: 0.112 },
+  { name: "YearsWithCurrManager", importance: 0.098 },
+  { name: "YearsExperienceBeforeCompany", importance: 0.087 },
+  { name: "NumCompaniesWorked", importance: 0.081 },
+  { name: "EducationField", importance: 0.072 },
+  { name: "TrainingTimesLastYear", importance: 0.063 },
+  { name: "HourlyRate", importance: 0.055 },
+  { name: "PercentSalaryHike", importance: 0.051 },
 ];
 
 const FeatureImportance = () => {

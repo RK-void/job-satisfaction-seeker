@@ -1,6 +1,15 @@
 
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 interface ModelData {
   name: string;
@@ -87,19 +96,22 @@ const ModelComparison = () => {
       )}
     >
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[640px]">
-          <thead>
-            <tr className="border-b">
-              <th className="text-left p-4 font-medium text-muted-foreground">Model</th>
-              <th className="text-center p-4 font-medium text-muted-foreground">Accuracy</th>
-              <th className="text-center p-4 font-medium text-muted-foreground">Precision</th>
-              <th className="text-center p-4 font-medium text-muted-foreground">Recall</th>
-              <th className="text-center p-4 font-medium text-muted-foreground">F1 Score</th>
-            </tr>
-          </thead>
-          <tbody>
+        <Table>
+          <TableCaption>
+            KNN (Tuned) achieved the highest performance with an F1 Score of 79.3%
+          </TableCaption>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="text-left">Model</TableHead>
+              <TableHead className="text-center">Accuracy</TableHead>
+              <TableHead className="text-center">Precision</TableHead>
+              <TableHead className="text-center">Recall</TableHead>
+              <TableHead className="text-center">F1 Score</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
             {models.map((model, index) => (
-              <tr
+              <TableRow
                 key={model.name}
                 className={cn(
                   "transition-all hover:bg-secondary/40",
@@ -108,7 +120,7 @@ const ModelComparison = () => {
                 )}
                 style={{ animationDelay: `${index * 150}ms` }}
               >
-                <td className="p-4 border-b">
+                <TableCell className="font-medium">
                   <div className="flex items-center">
                     {model.isBest && (
                       <span className="bg-primary/10 text-primary text-xs py-1 px-2 rounded-full mr-2">
@@ -117,25 +129,23 @@ const ModelComparison = () => {
                     )}
                     {model.name}
                   </div>
-                </td>
-                <td className="p-4 text-center border-b">
+                </TableCell>
+                <TableCell className="text-center">
                   {(model.accuracy * 100).toFixed(1)}%
-                </td>
-                <td className="p-4 text-center border-b">
+                </TableCell>
+                <TableCell className="text-center">
                   {(model.precision * 100).toFixed(1)}%
-                </td>
-                <td className="p-4 text-center border-b">
+                </TableCell>
+                <TableCell className="text-center">
                   {(model.recall * 100).toFixed(1)}%
-                </td>
-                <td className="p-4 text-center border-b">
-                  <span className={model.isBest ? "font-semibold text-primary" : ""}>
-                    {(model.f1Score * 100).toFixed(1)}%
-                  </span>
-                </td>
-              </tr>
+                </TableCell>
+                <TableCell className={cn("text-center", model.isBest ? "font-semibold text-primary" : "")}>
+                  {(model.f1Score * 100).toFixed(1)}%
+                </TableCell>
+              </TableRow>
             ))}
-          </tbody>
-        </table>
+          </TableBody>
+        </Table>
       </div>
     </div>
   );
