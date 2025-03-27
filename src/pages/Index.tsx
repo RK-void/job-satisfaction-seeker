@@ -3,11 +3,12 @@ import { useEffect, useState } from 'react';
 import Navigation from '@/components/Navigation';
 import SectionTitle from '@/components/SectionTitle';
 import ProjectInfo from '@/components/ProjectInfo';
-import ModelComparison from '@/components/ModelComparison';
-import FeatureImportance from '@/components/FeatureImportance';
-import EmployeeSegments from '@/components/EmployeeSegments';
-import SatisfactionScale from '@/components/SatisfactionScale';
-import SalaryHikeModels from '@/components/SalaryHikeModels';
+import ProjectOverview from '@/components/ProjectOverview';
+import ProjectBackground from '@/components/ProjectBackground';
+import DataAnalysis from '@/components/DataAnalysis';
+import SalaryHikePrediction from '@/components/SalaryHikePrediction';
+import JobSatisfactionPrediction from '@/components/JobSatisfactionPrediction';
+import ProjectConclusion from '@/components/ProjectConclusion';
 import { cn } from '@/lib/utils';
 import { ArrowUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -80,52 +81,42 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Project Team Info */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-12">
-        <ProjectInfo />
+      {/* Common Sections (visible regardless of active section) */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-12">
+          <ProjectOverview />
+        </div>
+        
+        <div className="mb-12">
+          <ProjectBackground />
+        </div>
+        
+        <div className="mb-12">
+          <DataAnalysis />
+        </div>
+        
+        {/* Project Team Info */}
+        <div className="mb-12">
+          <ProjectInfo />
+        </div>
       </div>
 
-      {/* Main Content */}
+      {/* Main Content - Toggled by buttons */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {activeSection === 'salary' ? (
           <div className="animate-fade-in">
-            <SectionTitle 
-              title="Salary Hike Prediction"
-              subtitle="Using regression techniques to predict employee salary increases"
-              id="salary-hike-title"
-            />
-            <SalaryHikeModels />
+            <SalaryHikePrediction />
           </div>
         ) : (
           <div className="animate-fade-in">
-            <SectionTitle 
-              title="Job Satisfaction Prediction"
-              subtitle="Using classification to predict employee satisfaction levels"
-              id="satisfaction-title"
-            />
-            
-            <div className="mb-12">
-              <ModelComparison />
-            </div>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-              <div>
-                <h3 className="text-xl font-medium mb-6">Feature Importance</h3>
-                <FeatureImportance />
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-medium mb-6">Employee Segments</h3>
-                <EmployeeSegments />
-              </div>
-            </div>
-            
-            <div className="mb-12">
-              <h3 className="text-xl font-medium mb-6">Satisfaction Prediction</h3>
-              <SatisfactionScale />
-            </div>
+            <JobSatisfactionPrediction />
           </div>
         )}
+        
+        {/* Conclusion - visible regardless of active section */}
+        <div className="mt-16">
+          <ProjectConclusion />
+        </div>
       </div>
       
       {/* Footer */}
@@ -134,7 +125,11 @@ const Index = () => {
           <div className="text-center">
             <h2 className="text-xl font-medium mb-4">Machine Learning Prediction Models</h2>
             <p className="text-muted-foreground mb-4">BUSI 651-HBD-WINTER25-01 Group Project</p>
-            <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} Team 7 - All rights reserved</p>
+            <p className="text-sm text-muted-foreground">Team 7:</p>
+            <p className="text-sm text-muted-foreground mb-4">
+              Hamza Ahmed Siddiqui (2242917) • Himani Rajput • Numan Safiullakhan Pathan (2242732) • Rabin Khadka
+            </p>
+            <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} - All rights reserved</p>
           </div>
         </div>
       </footer>
