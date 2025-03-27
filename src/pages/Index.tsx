@@ -15,7 +15,7 @@ import { Button } from '@/components/ui/button';
 
 const Index = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [activeSection, setActiveSection] = useState<'salary' | 'satisfaction'>('salary');
+  const [activeSection, setActiveSection] = useState<'overview' | 'salary' | 'satisfaction'>('overview');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,6 +61,14 @@ const Index = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{ animationDelay: '400ms' }}>
               <Button 
+                onClick={() => setActiveSection('overview')}
+                size="lg"
+                variant={activeSection === 'overview' ? 'default' : 'outline'}
+                className="transition-all duration-300"
+              >
+                Project Overview
+              </Button>
+              <Button 
                 onClick={() => setActiveSection('salary')}
                 size="lg"
                 variant={activeSection === 'salary' ? 'default' : 'outline'}
@@ -81,42 +89,48 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Common Sections (visible regardless of active section) */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-12">
-          <ProjectOverview />
-        </div>
-        
-        <div className="mb-12">
-          <ProjectBackground />
-        </div>
-        
-        <div className="mb-12">
-          <DataAnalysis />
-        </div>
-        
-        {/* Project Team Info */}
-        <div className="mb-12">
-          <ProjectInfo />
-        </div>
-      </div>
-
       {/* Main Content - Toggled by buttons */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {activeSection === 'salary' ? (
+        {activeSection === 'overview' && (
           <div className="animate-fade-in">
-            <SalaryHikePrediction />
-          </div>
-        ) : (
-          <div className="animate-fade-in">
-            <JobSatisfactionPrediction />
+            <div className="mb-12">
+              <ProjectOverview />
+            </div>
+            
+            <div className="mb-12">
+              <ProjectBackground />
+            </div>
+            
+            <div className="mb-12">
+              <DataAnalysis />
+            </div>
+            
+            {/* Project Team Info */}
+            <div className="mb-12">
+              <ProjectInfo />
+            </div>
           </div>
         )}
         
-        {/* Conclusion - visible regardless of active section */}
-        <div className="mt-16">
-          <ProjectConclusion />
-        </div>
+        {activeSection === 'salary' && (
+          <div className="animate-fade-in">
+            <SalaryHikePrediction />
+            
+            <div className="mt-16">
+              <ProjectConclusion />
+            </div>
+          </div>
+        )}
+        
+        {activeSection === 'satisfaction' && (
+          <div className="animate-fade-in">
+            <JobSatisfactionPrediction />
+            
+            <div className="mt-16">
+              <ProjectConclusion />
+            </div>
+          </div>
+        )}
       </div>
       
       {/* Footer */}
@@ -125,11 +139,8 @@ const Index = () => {
           <div className="text-center">
             <h2 className="text-xl font-medium mb-4">Machine Learning Prediction Models</h2>
             <p className="text-muted-foreground mb-4">BUSI 651-HBD-WINTER25-01 Group Project</p>
-            <p className="text-sm text-muted-foreground">Team 7:</p>
-            <p className="text-sm text-muted-foreground mb-4">
-              Hamza Ahmed Siddiqui (2242917) • Himani Rajput • Numan Safiullakhan Pathan (2242732) • Rabin Khadka
-            </p>
             <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} - All rights reserved</p>
+            <p className="text-sm text-muted-foreground mt-2">By Rabin Khadka</p>
           </div>
         </div>
       </footer>

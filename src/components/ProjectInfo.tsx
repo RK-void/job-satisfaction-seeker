@@ -11,7 +11,7 @@ const teamMembers: TeamMember[] = [
   { name: "Hamza Ahmed Siddiqui", id: "2242917" },
   { name: "Himani Rajput" },
   { name: "Numan Safiullakhan Pathan", id: "2242732" },
-  { name: "Rabin Khadka" },
+  { name: "Rabin Khadka", id: "2321194" },
 ];
 
 const ProjectInfo = () => {

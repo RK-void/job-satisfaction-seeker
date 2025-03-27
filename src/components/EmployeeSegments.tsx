@@ -14,15 +14,15 @@ interface SegmentData {
 const segments: SegmentData[] = [
   {
     id: 0,
-    name: "High Performers",
+    name: "High Performers (Cluster 2)",
     description: "Employees with high potential for growth who show strong satisfaction levels",
     satisfaction: 4.2,
     keyAttributes: ["High Income", "Good Work-Life Balance", "Recent Promotion"],
-    color: "bg-blue-500",
+    color: "bg-yellow-500",
   },
   {
     id: 1,
-    name: "Stable Contributors",
+    name: "Stable Contributors (Cluster 1)",
     description: "Reliable employees with moderate satisfaction needing engagement",
     satisfaction: 3.1,
     keyAttributes: ["Average Income", "Medium Tenure", "Technical Roles"],
@@ -30,19 +30,11 @@ const segments: SegmentData[] = [
   },
   {
     id: 2,
-    name: "At-Risk Employees",
+    name: "At-Risk Employees (Cluster 0)",
     description: "Showing signs of disengagement with lower satisfaction scores",
     satisfaction: 1.8,
     keyAttributes: ["High Overtime", "Low Work-Life Balance", "No Recent Promotion"],
-    color: "bg-red-500",
-  },
-  {
-    id: 3,
-    name: "Senior Specialists",
-    description: "Experienced employees with specialized expertise and varying satisfaction",
-    satisfaction: 2.9,
-    keyAttributes: ["Long Tenure", "High Job Level", "Management Roles"],
-    color: "bg-purple-500",
+    color: "bg-purple-800",
   },
 ];
 
@@ -83,7 +75,7 @@ const EmployeeSegments = () => {
         isVisible && "opacity-100"
       )}
     >
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         {segments.map((segment) => (
           <button
             key={segment.id}

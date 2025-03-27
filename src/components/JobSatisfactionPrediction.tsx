@@ -103,7 +103,7 @@ const JobSatisfactionPrediction = () => {
           
           <div className="bg-white rounded-lg overflow-hidden">
             <img 
-              src="/lovable-uploads/54a01dd7-5011-41d2-a6df-fb0793f1d130.png" 
+              src="/lovable-uploads/884901d7-9579-4932-b368-dc8f0cc3c597.png" 
               alt="Employee Clustering Using PCA" 
               className="w-full max-w-2xl mx-auto h-auto"
             />
